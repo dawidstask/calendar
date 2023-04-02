@@ -26,7 +26,7 @@ const addDays = (days: number) => {
         </div>
       </div>
       <div class="flex align-items-center justify-content-end mt-4">
-        <Button label="Dodaj rezerwację" icon="pi pi-check" />
+        <Button label="Dodaj rezerwację" icon="pi pi-plus" />
       </div>
       <div class="mt-2">
         <ReservationCalendar :date="date" />
