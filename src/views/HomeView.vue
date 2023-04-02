@@ -21,7 +21,7 @@ const addDays = (days: number) => {
         </div>
         <div>
           <Button icon="pi pi-angle-left" outlined @click="addDays(-1)" />
-          <Button label="Today" outlined class="ml-2" @click="setToday" />
+          <Button label="Dzisiaj" outlined class="ml-2" @click="setToday" />
           <Button icon="pi pi-angle-right" outlined class="ml-2" @click="addDays(1)" />
         </div>
       </div>

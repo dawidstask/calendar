@@ -1,54 +1,42 @@
 <script setup lang="ts">
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
+import { useCalendarStore } from "@/stores/calendar";
+import { ref } from "vue";
 defineProps<{
   date: Date
 }>()
 
-const events = [
-  {
-    id: 1,
-    start: '2023-03-15 18:00',
-    end: '2023-03-15 20:00',
-    title: 'Reservation 1',
-    content: 'test 1',
-    split: 1,
-  },
-  {
-    id: 2,
-    start: '2023-03-15 17:00',
-    end: '2023-03-15 20:00',
-    title: 'Reservation 2',
-    content: 'test 2',
-    split: 2,
-  },
-  {
-    id: 3,
-    start: '2023-03-15 21:00',
-    end: '2023-03-15 23:00',
-    title: 'Reservation 3',
-    content: 'test 3',
-    split: 1
-  },
-]
+const { events } = useCalendarStore()
 const splits = [
   { id: 1, class: 'table1', label: 'Table 1' },
   { id: 2, class: 'table2', label: 'Table2' },
 ]
+const locale = ref(navigator?.languages[1] || 'pl')
 const onEventClick = (event, e) => console.log({event, e}, event.id)
+const scrollToCurrentTime = () => {
+  // const calendar = document.querySelector('.reservation-calendar .vuecal__bg')
+  const calendar = document.querySelector('.reservation-calendar')
+  const now = new Date()
+  const timeCellHeight = 26
+  const hours = now.getHours() + now.getMinutes() / 60
+  calendar?.scrollTo({ top: hours * timeCellHeight, behavior: 'smooth' })
+}
 </script>
 
 <template>
   <div class="reservation-calendar">
     <vue-cal
-      :disable-views="['years', 'year', 'month', 'week']"
+      active-view="day"
       :selected-date="date"
       :time-from="12*60"
       :time-to="25*60"
       :events="events"
       :split-days="splits"
       :on-event-click="onEventClick"
+      :locale="locale"
       sticky-split-labels
+      @ready="scrollToCurrentTime"
     >
     </vue-cal>
   </div>
@@ -56,7 +44,7 @@ const onEventClick = (event, e) => console.log({event, e}, event.id)
 
 <style lang="scss" scoped>
 .reservation-calendar  {
-  height: 500px;
+  height: 450px;
   :deep(.vuecal__menu) {
     display: none;
   }

@@ -108,7 +108,7 @@
               class="flex align-items-center menu__item"
             >
               <i class="pi pi-home text-base mr-2" />
-              <span>Dashboard</span>
+              <span>Pulpit</span>
             </RouterLink>
           </nav>
           <Avatar
