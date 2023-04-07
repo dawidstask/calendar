@@ -26,8 +26,9 @@ const event = reactive({
   table: tables.value[0],
   people: 2,
   date: new Date(),
-  startTime: new Date(),
-  endTime: new Date(),
+  start: new Date(),
+  end: new Date(),
+  comment: null,
 })
 </script>
 
@@ -59,12 +60,12 @@ const event = reactive({
         <Calendar id="date" v-model="event.date" showIcon />
       </div>
       <div class="flex flex-column gap-1">
-        <label for="startTime">Początek</label>
-        <Calendar id="startTime" v-model="event.startTime" timeOnly />
+        <label for="start">Początek</label>
+        <Calendar id="start" v-model="event.start" timeOnly />
       </div>
       <div class="flex flex-column gap-1">
-        <label for="endTime">Koniec</label>
-        <Calendar id="endTime" v-model="event.endTime" timeOnly />
+        <label for="end">Koniec</label>
+        <Calendar id="end" v-model="event.end" timeOnly />
       </div>
     </div>
     <div class="flex mb-3">
