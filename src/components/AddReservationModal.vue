@@ -10,10 +10,12 @@ import Calendar from "primevue/calendar";
 import { reactive, ref } from "vue";
 import { useModalStore } from "@/stores/modal";
 import { storeToRefs } from "pinia";
+import { useCalendarStore } from "@/stores/calendar";
 const modalStore = useModalStore()
 const { isModalOpen } = storeToRefs(modalStore)
 const { setIsModalOpen } = modalStore
 
+const calendarStore = useCalendarStore()
 // TODO: move to store
 const tables = ref([
   { label: 'Table 1', value: '1' },
@@ -29,11 +31,12 @@ const event = reactive({
   people: 2,
   date: new Date(),
   start: new Date(),
-  end: new Date(),
+  end: new Date(Date.now() + (60 * 60 * 1000)),
   comment: null,
 })
 const onAddClick = () => {
   console.log('e: ', event)
+  calendarStore.addEvent(event)
   setIsModalOpen(false)
 }
 </script>

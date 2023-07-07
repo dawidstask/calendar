@@ -7,8 +7,7 @@ defineProps<{
   date: Date
 }>()
 
-const { events } = useCalendarStore()
-console.log(events)
+const calendarStore = useCalendarStore()
 const splits = [
   { id: 1, class: 'table1', label: 'Stolik 1' },
   { id: 2, class: 'table2', label: 'Stolik 2' },
@@ -31,7 +30,7 @@ const scrollToCurrentTime = () => {
       :selected-date="date"
       :time-from="12*60"
       :time-to="25*60"
-      :events="events"
+      :events="calendarStore.getCalendarEvents()"
       :split-days="splits"
       :on-event-click="onEventClick"
       :locale="locale"
