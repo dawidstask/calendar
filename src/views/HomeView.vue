@@ -18,7 +18,7 @@ const addDays = (days: number) => {
 
 <template>
   <div class="w-full text-800">
-    <div class="flex align-items-center justify-content-between mt-8">
+    <div class="flex align-items-center justify-content-between">
       <div>
         <Calendar v-model="date" showIcon dateFormat="dd/mm/yy" />
       </div>

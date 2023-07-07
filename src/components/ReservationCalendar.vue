@@ -8,15 +8,15 @@ defineProps<{
 }>()
 
 const { events } = useCalendarStore()
+console.log(events)
 const splits = [
-  { id: 1, class: 'table1', label: 'Table 1' },
-  { id: 2, class: 'table2', label: 'Table2' },
+  { id: 1, class: 'table1', label: 'Stolik 1' },
+  { id: 2, class: 'table2', label: 'Stolik 2' },
 ]
 const locale = ref(navigator?.languages[1] || 'pl')
 const onEventClick = (event, e) => console.log({event, e}, event.id)
 const scrollToCurrentTime = () => {
-  // const calendar = document.querySelector('.reservation-calendar .vuecal__bg')
-  const calendar = document.querySelector('.reservation-calendar')
+  const calendar = document.querySelector('.reservation-calendar .vuecal__bg')
   const now = new Date()
   const timeCellHeight = 26
   const hours = now.getHours() + now.getMinutes() / 60
@@ -35,6 +35,7 @@ const scrollToCurrentTime = () => {
       :split-days="splits"
       :on-event-click="onEventClick"
       :locale="locale"
+      :disable-views="['years', 'year', 'week']"
       sticky-split-labels
       @ready="scrollToCurrentTime"
     >
