@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 import { useCalendarStore } from "@/stores/calendar";
