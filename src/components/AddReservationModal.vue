@@ -26,13 +26,13 @@ const tables = ref([
 // TODO: update calendar store. Create getter to have events for cal, keep it as below in store
 const event = reactive({
   name: null,
-  phone: null,
+  phone: undefined,
   table: tables.value[0],
   people: 2,
   date: new Date(),
   start: new Date(),
   end: new Date(Date.now() + (60 * 60 * 1000)),
-  comment: null,
+  comment: undefined,
 })
 const onAddClick = () => {
   console.log('e: ', event)

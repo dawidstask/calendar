@@ -19,7 +19,7 @@ import Avatar from 'primevue/avatar'
         <Avatar
           label="DS"
           class="avatar mr-4 cursor-pointer"
-          size="medium"
+          size="normal"
           shape="circle"
         />
       </header>

@@ -13,7 +13,7 @@ const splits = [
   { id: 2, class: 'table2', label: 'Stolik 2' },
 ]
 const locale = ref(navigator?.languages[1] || 'pl')
-const onEventClick = (event, e) => console.log({event, e}, event.id)
+const onEventClick = (event: any, e: any) => console.log({event, e}, event.id)
 const scrollToCurrentTime = () => {
   const calendar = document.querySelector('.reservation-calendar .vuecal__bg')
   const now = new Date()

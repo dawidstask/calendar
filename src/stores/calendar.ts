@@ -29,7 +29,7 @@ export const useCalendarStore = defineStore('calendar', () => {
     },
   ])
 
-  const addEvent = (event) => events.push({ id: events.length + 1, ...event })
+  const addEvent = (event: any) => events.push({ id: events.length + 1, ...event })
   const getCalendarEvents = () => {
     return events.map(e => (
       {
