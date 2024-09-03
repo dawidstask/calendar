@@ -43,9 +43,12 @@ export const useCalendarStore = defineStore('calendar', () => {
     ))
   }
 
+  const getEventById = (id: number) => events.find(e => e.id === id)
+
   return {
     events,
     getCalendarEvents,
+    getEventById,
     // events: events.map(e => (
     //   {
     //     id: e.id,
